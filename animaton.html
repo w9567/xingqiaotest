@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grad1 {
+          height: 500px;
+          width: 500px;
+          background-color: red; /* 对于不支持渐变的浏览器 */
+          background-image: repeating-conic-gradient(red 0deg 30deg,yellow 30deg 60deg,blue 60deg 90deg);
+          margin: auto;
+          border-radius: 50%;
+          animation: myrotate 1.5s infinite linear;
+        }
+        @keyframes myrotate{
+              0%{
+                transform :rotate(0deg);
+            }
+        
+            100%{
+                transform :rotate(360deg);
+            }
+        }
+        </style>
+</head>
+<body>
+    <div id="grad1"></div>
+</body>
+</html>
