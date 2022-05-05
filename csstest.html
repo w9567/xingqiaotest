@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css</title>
+    <style>
+        /* 字体  打字效果 */
+        .typing {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .typing-effect {
+            width: 22ch;
+            white-space: nowrap;
+            overflow: hidden;
+            font-family: monospace;
+            font-size: 2em;
+            animation: typing 2s steps(22);
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+        }
+
+        /* 阴影 */
+        .transparent-shadow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .margin-right {
+            margin-right: 2em;
+        }
+
+        .margin-bottom {
+            margin-bottom: 1em;
+        }
+
+        .align-center {
+            text-align: center;
+        }
+
+        .box-shadow {
+            box-shadow: 2px 4px 8px #3723a1;
+        }
+
+        .drop-shadow {
+            filter: drop-shadow(2px 4px 8px #3723a1);
+        }
+
+        /* 鼠标手势 */
+        .custom-cursor {
+            display: flex;
+            height: 80vh;
+            align-items: center;
+            justify-content: center;
+            background: #f3f3f3;
+            padding: 0 10px;
+        }
+
+        .card {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #D29A5A;
+            margin-right: 10px;
+            color: #fff;
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        .card-image-cursor {
+            background-color: #D11A5A;
+            cursor: url("https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ac1d8cb2b1b46a384e986a7461df26a~tplv-k3u1fbpfcp-watermark.image?"), auto;
+        }
+
+        .card-emoji-cursor {
+            background-color: #D29B22;
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='48' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🚀</text></svg>"), auto;
+        }
+
+        /* tooltip */
+        .tooltip {
+            position: relative;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip:before {
+            content: attr(tooltip-data);
+            position: absolute;
+            width: 250px;
+            background-color: #efba93;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            line-height: 1.1;
+            border-radius: 5px;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity .5s;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            font-size: 0.70em;
+            visibility: hidden;
+        }
+
+        .tooltip:after {
+            content: "";
+            position: absolute;
+            bottom: 75%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            opacity: 0;
+            transition: opacity .5s;
+            border-color: #000 transparent transparent transparent;
+            visibility: hidden;
+        }
+
+        .tooltip:hover:before,
+        .tooltip:hover:after {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* 首字母大写 */
+        .content-section p:first-of-type::first-letter {
+            color: #f3f3f3;
+            float:  left;
+            font-size: 4rem;
+            line-height: 4vw;
+            padding-right: 8px;
+        /* border: 0.25em double; */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 字体逐渐显示 -->
+    <div class="typing">
+        <div class="typing-effect">
+            <!-- 样式中必须定义宽度，且在动画配置中steps（width）一致 -->
+            Typing effect for text
+        </div>
+    </div>
+    <!-- 阴影效果 -->
+    <div class="transparent-shadow">
+        <div class="margin-right">
+            <div class="margin-bottom align-center">
+                box-shadow
+            </div>
+
+            <img class="box-shadow" src="https://stackdiary.com/wp-content/uploads/2022/02/logo.png"
+                alt="box-shadow example (transparent)">
+        </div>
+
+        <div>
+            <div class="margin-bottom align-center">
+                drop-shadow
+            </div>
+
+            <img class="drop-shadow" src="https://stackdiary.com/wp-content/uploads/2022/02/logo.png"
+                alt="drop-shadow example (transparent)">
+        </div>
+    </div>
+    <!-- 鼠标手势 -->
+    <div class="custom-cursor">
+        <div class="card">
+            Default
+        </div>
+
+        <div class="card card-image-cursor">
+            Image
+        </div>
+
+        <div class="card card-emoji-cursor">
+            Emoji
+        </div>
+    </div>
+    <!-- tooltip -->
+    <h1>
+        HTML/CSS tooltip
+    </h1>
+    <p>
+        Hover <span class="tooltip" tooltip-data="Tooltip Content">Here</span> to see the tooltip.
+    </p>
+    <p>
+        You can also hover <span class="tooltip" tooltip-data="This is another Tooltip Content">here</span> to see
+        another example.
+    </p>
+    <!-- 首字母大写 -->
+    <div class="content-section">
+        <p>here we target the  wrapper and select the p element. then append first-of-type and target first-letter specifically. you can then reuse the same option in other parts of your design by changing the wrapper variable</p>
+    </div>
+</body>
+
+</html>
