@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .bg {
+
+            font-size: 150px;
+            color: #ff7693;
+            animation: heart-anim 1s linear .5s infinite;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: 35%;
+        }
+
+        .love {
+            font-size: 150px;
+            color: #e00;
+            transform-origin: center;
+            animation: beat .5s infinite alternate;
+            position: absolute;
+            left: 50%;
+            top: 35%;
+        }
+
+        @keyframes beat {
+            to {
+                transform: scale(1.4);
+            }
+        }
+
+        @keyframes heart-anim {
+            46% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+
+            52% {
+                transform: scale(1.5);
+            }
+
+            55% {
+                transform: scale(3);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(50);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">&#x2665;</div>
+    <div class="love">&#x2665;</div>
+</body>
+
+</html>
